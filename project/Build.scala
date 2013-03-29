@@ -34,4 +34,11 @@ object Build extends Build {
       )
     ) : _*
   ).dependsOn(bound)
+
+  lazy val oldSolutions = Project(
+    id = "old-solutions",
+    base = file("old-solutions")
+  ).settings(
+    baseSettings : _*
+  )
 }
