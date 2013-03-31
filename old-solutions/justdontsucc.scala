@@ -74,4 +74,13 @@ object Exp {
       case Lam(s)        => s traverse f map (Lam(_))
     }
   }
+
+  def example = {
+    // \x.x
+    Lam(Scope(Var(Zero)))
+    // \x.\y.x
+    Lam(Scope(Lam(Scope(Var(Succ(Zero))))))
+    // \x.\y.x y z
+    Lam(Scope(Lam(Scope(App(App(Var(Succ(Zero)), Var(Zero)), Var(Succ(Succ("z"))))))))
+  }
 }
